@@ -15,8 +15,8 @@ class SwinPrognosisDataset(Dataset):
         self.df = pd.read_csv(df)
         self.patient = self.df['case_id']
         self.label = self.df['label']
-        # self.censor = self.df['censor']
-        self.censor = self.df['status']
+        self.censor = self.df['censor']
+        # self.censor = self.df['status']
         self.time = self.df['survival_months']
         self.wsi = self.df['slide_id'].apply(lambda x: ast.literal_eval(x.strip()))
         self.data_dir = data_dir
